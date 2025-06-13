@@ -1,0 +1,22 @@
+conda create -n libai-voice python=3.10 -y
+conda activate libai-voice
+pip install dotenv requests
+pip install fastapi uvicorn requests python-dotenv websockets 
+pip install numpy 
+pip install openai-whisper
+pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118  # 按需换成cpu或cuda版本
+pip install soundfile scipy
+pip install pydub
+pip install coqui-tts
+conda install -c conda-forge ffmpeg
+pip install ffmpeg-python pydub
+pip install aiofiles jinja2 websockets fastapi uvicorn
+pip install edge-tts
+
+
+Python 路径问题：当你直接运行 load_model.py 时，Python 解释器只将当前目录（e:/李白语音智能体/backend/models）添加到模块搜索路径（sys.path）中，而不会自动包含父目录（e:/李白语音智能体）。因此，它无法找到 backend 包。
+在运行脚本之前，临时将项目根目录添加到 Python 搜索路径中：
+set PYTHONPATH=e:/李白语音智能体(Window)
+export PYTHONPATH=e:/李白语音智能体(Linux)
+D:/Anaconda/envs/libai-voice/python.exe -m backend.main_static
+
